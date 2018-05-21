@@ -1,0 +1,1010 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="toTina" nsURI="fr::n7::petriNet::toTina::main::toTina" startHeaderPosition="29" endHeaderPosition="133">
+    <input>
+      <takesTypesFrom href="http://petrinet#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="toTina" visibility="Public" main="true">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="net "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aReseauPetri" referredVariable="/0/toTina/aReseauPetri">
+            <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//ReseauPetri/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" {&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;pl "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/toTina/%/%.3/p">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Noeud/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ("/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/toTina/%/%.3/p">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Place/jeton"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")&#xA;"/>
+          <loopVariable name="p">
+            <eType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+          </loopVariable>
+          <iterSet xsi:type="mtl:QueryInvocation" eType="/3/OrderedSet(Place)" definition="/0/getPlaces">
+            <argument xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(PetriElement)">
+              <source xsi:type="ocl.ecore:VariableExp" name="aReseauPetri" referredVariable="/0/toTina/aReseauPetri">
+                <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://petrinet#//ReseauPetri/petrielement"/>
+            </argument>
+          </iterSet>
+        </body>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;tr "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/toTina/%/%.4/t">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Noeud/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://petrinet#//Noeud"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/toTina/%/%.4/%.3/a">
+                  <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://petrinet#//Arc/predecessor"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Noeud/name"/>
+            </body>
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="*"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/toTina/%/%.4/%.3/a">
+                  <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Arc/poids"/>
+              </body>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/toTina/%/%.4/%.3/a">
+                    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Arc/poids"/>
+                </source>
+                <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E"/>
+              </ifExpr>
+            </body>
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="?"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/toTina/%/%.4/%.3/a">
+                  <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Arc/poids"/>
+              </body>
+              <ifExpr xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/toTina/%/%.4/%.3/a">
+                  <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Arc/isReadArc"/>
+              </ifExpr>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+            <loopVariable name="a">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(Arc)">
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/toTina/%/%.4/t">
+                <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://petrinet#//Noeud/linksToPredecessors"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="-> "/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://petrinet#//Noeud"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/toTina/%/%.4/%.5/a">
+                  <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://petrinet#//Arc/successor"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Noeud/name"/>
+            </body>
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="*"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/toTina/%/%.4/%.5/a">
+                  <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Arc/poids"/>
+              </body>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/toTina/%/%.4/%.5/a">
+                    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//Arc/poids"/>
+                </source>
+                <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E"/>
+              </ifExpr>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+            <loopVariable name="a">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(Arc)">
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/toTina/%/%.4/t">
+                <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://petrinet#//Noeud/LinksToSuccessors"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&#xA;"/>
+          <loopVariable name="t">
+            <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+          </loopVariable>
+          <iterSet xsi:type="mtl:QueryInvocation" eType="/3/OrderedSet(Transition)" definition="/0/getTransitions">
+            <argument xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(PetriElement)">
+              <source xsi:type="ocl.ecore:VariableExp" name="aReseauPetri" referredVariable="/0/toTina/aReseauPetri">
+                <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://petrinet#//ReseauPetri/petrielement"/>
+            </argument>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aReseauPetri" referredVariable="/0/toTina/aReseauPetri">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://petrinet#//ReseauPetri/name"/>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".net">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aReseauPetri">
+        <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getTransitions" visibility="Public" type="/3/OrderedSet(Transition)">
+      <parameter name="elements" eType="/3/OrderedSet(PetriElement)"/>
+      <expression xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(Transition)">
+        <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Sequence(Transition)">
+          <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/OrderedSet(PetriElement)">
+            <source xsi:type="ocl.ecore:VariableExp" name="elements" eType="/3/OrderedSet(PetriElement)" referredVariable="/0/getTransitions/elements"/>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getTransitions/%/collect/select/e">
+                <eType xsi:type="ecore:EClass" href="http://petrinet#//PetriElement"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/39/Transition">
+                <referredType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsKindOf"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="e">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//PetriElement"/>
+            </iterator>
+          </source>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getTransitions/%/collect/e">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//PetriElement"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/39/Transition">
+              <referredType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="e">
+            <eType xsi:type="ecore:EClass" href="http://petrinet#//PetriElement"/>
+          </iterator>
+        </source>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/asOrderedSet"/>
+      </expression>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getPlaces" visibility="Public" type="/3/OrderedSet(Place)">
+      <parameter name="elements" eType="/3/OrderedSet(PetriElement)"/>
+      <expression xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(Place)">
+        <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Sequence(Place)">
+          <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/OrderedSet(PetriElement)">
+            <source xsi:type="ocl.ecore:VariableExp" name="elements" eType="/3/OrderedSet(PetriElement)" referredVariable="/0/getPlaces/elements"/>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getPlaces/%/collect/select/e">
+                <eType xsi:type="ecore:EClass" href="http://petrinet#//PetriElement"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/39/Place">
+                <referredType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsKindOf"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="e">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//PetriElement"/>
+            </iterator>
+          </source>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getPlaces/%/collect/e">
+              <eType xsi:type="ecore:EClass" href="http://petrinet#//PetriElement"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/39/Place">
+              <referredType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="e">
+            <eType xsi:type="ecore:EClass" href="http://petrinet#//PetriElement"/>
+          </iterator>
+        </source>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/asOrderedSet"/>
+      </expression>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="toTina">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/toTina"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aReseauPetri">
+          <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getTransitions" eType="/3/OrderedSet(Transition)">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getTransitions"/>
+        <eParameters name="elements" eType="/3/OrderedSet(PetriElement)"/>
+      </eOperations>
+      <eOperations name="getPlaces" eType="/3/OrderedSet(Place)">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getPlaces"/>
+        <eParameters name="elements" eType="/3/OrderedSet(PetriElement)"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PetriNet_ReseauPetri_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://petrinet#//ReseauPetri"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="collections_OrderedSet(PetriElement)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL" references="/3/OrderedSet(PetriElement)"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Transition)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(PetriElement)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://petrinet#//PetriElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Place)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Arc)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Transition)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Place)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Arc"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://petrinet#//ReseauPetri"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self" eType="/3/OrderedSet(PetriElement)"/>
+  <ecore:EPackage name="types">
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Transition">
+      <referredType xsi:type="ecore:EClass" href="http://petrinet#//Transition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Place">
+      <referredType xsi:type="ecore:EClass" href="http://petrinet#//Place"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self" eType="/3/OrderedSet(PetriElement)"/>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self" eType="/3/OrderedSet(PetriElement)"/>
+  <ocl.ecore:Variable name="self" eType="/3/OrderedSet(PetriElement)"/>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/toTina">
+      <details key="start" value="66"/>
+      <details key="end" value="665"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/toTina/%">
+      <details key="start" value="136"/>
+      <details key="end" value="653"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/toTina/%/%">
+      <details key="start" value="194"/>
+      <details key="end" value="198"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/toTina/%/%.1">
+      <details key="start" value="199"/>
+      <details key="end" value="216"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/toTina/%/%.1/aReseauPetri">
+      <details key="start" value="199"/>
+      <details key="end" value="211"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/toTina/%/%.2">
+      <details key="start" value="218"/>
+      <details key="end" value="221"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/toTina/%/%.3">
+      <details key="start" value="221"/>
+      <details key="end" value="313"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/toTina/%/%.3/%">
+      <details key="start" value="280"/>
+      <details key="end" value="284"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/toTina/%/%.3/%.1">
+      <details key="start" value="285"/>
+      <details key="end" value="291"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/toTina/%/%.3/%.1/p">
+      <details key="start" value="285"/>
+      <details key="end" value="286"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/toTina/%/%.3/%.2">
+      <details key="start" value="293"/>
+      <details key="end" value="295"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/toTina/%/%.3/%.3">
+      <details key="start" value="296"/>
+      <details key="end" value="303"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/toTina/%/%.3/%.3/p">
+      <details key="start" value="296"/>
+      <details key="end" value="297"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/toTina/%/%.3/%.4">
+      <details key="start" value="305"/>
+      <details key="end" value="307"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/toTina/%/%.3/p">
+      <details key="start" value="227"/>
+      <details key="end" value="236"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/toTina/%/%.3/%.5">
+      <details key="start" value="239"/>
+      <details key="end" value="277"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/toTina/%/%.3/%.5/%">
+      <details key="start" value="239"/>
+      <details key="end" value="264"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/toTina/%/%.3/%.5/%/aReseauPetri">
+      <details key="start" value="239"/>
+      <details key="end" value="251"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/toTina/%/%.4">
+      <details key="start" value="314"/>
+      <details key="end" value="643"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/toTina/%/%.4/%">
+      <details key="start" value="383"/>
+      <details key="end" value="387"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/toTina/%/%.4/%.1">
+      <details key="start" value="388"/>
+      <details key="end" value="394"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/toTina/%/%.4/%.1/t">
+      <details key="start" value="388"/>
+      <details key="end" value="389"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/toTina/%/%.4/%.2">
+      <details key="start" value="396"/>
+      <details key="end" value="397"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/toTina/%/%.4/%.3">
+      <details key="start" value="397"/>
+      <details key="end" value="532"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/toTina/%/%.4/%.3/%">
+      <details key="start" value="437"/>
+      <details key="end" value="455"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/toTina/%/%.4/%.3/%/%">
+      <details key="start" value="437"/>
+      <details key="end" value="450"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/toTina/%/%.4/%.3/%/%/a">
+      <details key="start" value="437"/>
+      <details key="end" value="438"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/toTina/%/%.4/%.3/%.1">
+      <details key="start" value="457"/>
+      <details key="end" value="491"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/toTina/%/%.4/%.3/%.1/%">
+      <details key="start" value="475"/>
+      <details key="end" value="476"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/toTina/%/%.4/%.3/%.1/%.1">
+      <details key="start" value="477"/>
+      <details key="end" value="484"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/toTina/%/%.4/%.3/%.1/%.1/a">
+      <details key="start" value="477"/>
+      <details key="end" value="478"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/toTina/%/%.4/%.3/%.1/%.2">
+      <details key="start" value="461"/>
+      <details key="end" value="474"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/toTina/%/%.4/%.3/%.1/%.2/%">
+      <details key="start" value="462"/>
+      <details key="end" value="469"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/toTina/%/%.4/%.3/%.1/%.2/%/a">
+      <details key="start" value="462"/>
+      <details key="end" value="463"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/toTina/%/%.4/%.3/%.1/%.2/%.1">
+      <details key="start" value="472"/>
+      <details key="end" value="473"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/toTina/%/%.4/%.3/%.2">
+      <details key="start" value="491"/>
+      <details key="end" value="525"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/toTina/%/%.4/%.3/%.2/%">
+      <details key="start" value="509"/>
+      <details key="end" value="510"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/toTina/%/%.4/%.3/%.2/%.1">
+      <details key="start" value="511"/>
+      <details key="end" value="518"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/toTina/%/%.4/%.3/%.2/%.1/a">
+      <details key="start" value="511"/>
+      <details key="end" value="512"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/toTina/%/%.4/%.3/%.2/%.2">
+      <details key="start" value="495"/>
+      <details key="end" value="508"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/toTina/%/%.4/%.3/%.2/%.2/a">
+      <details key="start" value="496"/>
+      <details key="end" value="497"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/toTina/%/%.4/%.3/%.3">
+      <details key="start" value="525"/>
+      <details key="end" value="526"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/toTina/%/%.4/%.3/a">
+      <details key="start" value="403"/>
+      <details key="end" value="410"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/toTina/%/%.4/%.3/%.4">
+      <details key="start" value="413"/>
+      <details key="end" value="434"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/toTina/%/%.4/%.3/%.4/t">
+      <details key="start" value="413"/>
+      <details key="end" value="414"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/toTina/%/%.4/%.4">
+      <details key="start" value="532"/>
+      <details key="end" value="535"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/toTina/%/%.4/%.5">
+      <details key="start" value="535"/>
+      <details key="end" value="632"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/toTina/%/%.4/%.5/%">
+      <details key="start" value="573"/>
+      <details key="end" value="589"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/toTina/%/%.4/%.5/%/%">
+      <details key="start" value="573"/>
+      <details key="end" value="584"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/toTina/%/%.4/%.5/%/%/a">
+      <details key="start" value="573"/>
+      <details key="end" value="574"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/toTina/%/%.4/%.5/%.1">
+      <details key="start" value="591"/>
+      <details key="end" value="625"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/toTina/%/%.4/%.5/%.1/%">
+      <details key="start" value="609"/>
+      <details key="end" value="610"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/toTina/%/%.4/%.5/%.1/%.1">
+      <details key="start" value="611"/>
+      <details key="end" value="618"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/toTina/%/%.4/%.5/%.1/%.1/a">
+      <details key="start" value="611"/>
+      <details key="end" value="612"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/toTina/%/%.4/%.5/%.1/%.2">
+      <details key="start" value="595"/>
+      <details key="end" value="608"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/toTina/%/%.4/%.5/%.1/%.2/%">
+      <details key="start" value="596"/>
+      <details key="end" value="603"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/toTina/%/%.4/%.5/%.1/%.2/%/a">
+      <details key="start" value="596"/>
+      <details key="end" value="597"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/toTina/%/%.4/%.5/%.1/%.2/%.1">
+      <details key="start" value="606"/>
+      <details key="end" value="607"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/toTina/%/%.4/%.5/%.2">
+      <details key="start" value="625"/>
+      <details key="end" value="626"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/toTina/%/%.4/%.5/a">
+      <details key="start" value="541"/>
+      <details key="end" value="548"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/toTina/%/%.4/%.5/%.3">
+      <details key="start" value="551"/>
+      <details key="end" value="570"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/toTina/%/%.4/%.5/%.3/t">
+      <details key="start" value="551"/>
+      <details key="end" value="552"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/toTina/%/%.4/%.6">
+      <details key="start" value="632"/>
+      <details key="end" value="637"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/toTina/%/%.4/t">
+      <details key="start" value="320"/>
+      <details key="end" value="334"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/toTina/%/%.4/%.7">
+      <details key="start" value="337"/>
+      <details key="end" value="380"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/toTina/%/%.4/%.7/%">
+      <details key="start" value="337"/>
+      <details key="end" value="362"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/toTina/%/%.4/%.7/%/aReseauPetri">
+      <details key="start" value="337"/>
+      <details key="end" value="349"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/toTina/%/%.5">
+      <details key="start" value="644"/>
+      <details key="end" value="646"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/toTina/%/%.6">
+      <details key="start" value="143"/>
+      <details key="end" value="175"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/toTina/%/%.6/%">
+      <details key="start" value="143"/>
+      <details key="end" value="160"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/toTina/%/%.6/%/aReseauPetri">
+      <details key="start" value="143"/>
+      <details key="end" value="155"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/toTina/%/%.6/%.1">
+      <details key="start" value="168"/>
+      <details key="end" value="174"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/toTina/%/%.7">
+      <details key="start" value="184"/>
+      <details key="end" value="191"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/toTina/aReseauPetri">
+      <details key="start" value="90"/>
+      <details key="end" value="116"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/getTransitions">
+      <details key="start" value="667"/>
+      <details key="end" value="880"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/getTransitions/elements">
+      <details key="start" value="696"/>
+      <details key="end" value="731"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/getTransitions/%">
+      <details key="start" value="762"/>
+      <details key="end" value="877"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/getTransitions/%/collect">
+      <details key="start" value="762"/>
+      <details key="end" value="856"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/getTransitions/%/collect/select">
+      <details key="start" value="762"/>
+      <details key="end" value="811"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/getTransitions/%/collect/select/elements">
+      <details key="start" value="762"/>
+      <details key="end" value="770"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/getTransitions/%/collect/select/%">
+      <details key="start" value="784"/>
+      <details key="end" value="809"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/getTransitions/%/collect/select/%/e">
+      <details key="start" value="784"/>
+      <details key="end" value="785"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/getTransitions/%/collect/select/%/%">
+      <details key="start" value="798"/>
+      <details key="end" value="808"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/getTransitions/%/collect/select/e">
+      <details key="start" value="780"/>
+      <details key="end" value="781"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/getTransitions/%/collect/%">
+      <details key="start" value="831"/>
+      <details key="end" value="854"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/getTransitions/%/collect/%/e">
+      <details key="start" value="831"/>
+      <details key="end" value="832"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/getTransitions/%/collect/%/%">
+      <details key="start" value="843"/>
+      <details key="end" value="853"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/getTransitions/%/collect/e">
+      <details key="start" value="827"/>
+      <details key="end" value="828"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/getPlaces">
+      <details key="start" value="883"/>
+      <details key="end" value="1076"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/getPlaces/elements">
+      <details key="start" value="907"/>
+      <details key="end" value="942"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/getPlaces/%">
+      <details key="start" value="968"/>
+      <details key="end" value="1073"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/getPlaces/%/collect">
+      <details key="start" value="968"/>
+      <details key="end" value="1052"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/getPlaces/%/collect/select">
+      <details key="start" value="968"/>
+      <details key="end" value="1012"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/getPlaces/%/collect/select/elements">
+      <details key="start" value="968"/>
+      <details key="end" value="976"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/getPlaces/%/collect/select/%">
+      <details key="start" value="990"/>
+      <details key="end" value="1010"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/getPlaces/%/collect/select/%/e">
+      <details key="start" value="990"/>
+      <details key="end" value="991"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/getPlaces/%/collect/select/%/%">
+      <details key="start" value="1004"/>
+      <details key="end" value="1009"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/getPlaces/%/collect/select/e">
+      <details key="start" value="986"/>
+      <details key="end" value="987"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/getPlaces/%/collect/%">
+      <details key="start" value="1032"/>
+      <details key="end" value="1050"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/getPlaces/%/collect/%/e">
+      <details key="start" value="1032"/>
+      <details key="end" value="1033"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/getPlaces/%/collect/%/%">
+      <details key="start" value="1044"/>
+      <details key="end" value="1049"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/getPlaces/%/collect/e">
+      <details key="start" value="1028"/>
+      <details key="end" value="1029"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

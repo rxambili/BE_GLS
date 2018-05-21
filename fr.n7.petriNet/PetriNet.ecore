@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PetriNet" nsURI="http://petrinet" nsPrefix="petrinet">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="#//Noeud">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jeton" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="#//PetriElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="poidsPos previousNodeinSamePetri nextNodeinSamePetri notSameNodeType"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="poidsPos" value="poids > 0"/>
+      <details key="previousNodeinSamePetri" value="self.reseauPetri = self.predecessor.reseauPetri"/>
+      <details key="nextNodeinSamePetri" value="self.reseauPetri = self.successor.reseauPetri"/>
+      <details key="notSameNodeType" value="(self.successor.oclIsKindOf(Place) and self.predecessor.oclIsKindOf(Transition))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;or (self.successor.oclIsKindOf(Transition) and self.predecessor.oclIsKindOf(Place))"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor" lowerBound="1"
+        eType="#//Noeud" eOpposite="#//Noeud/linksToPredecessors"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" lowerBound="1"
+        eType="#//Noeud" eOpposite="#//Noeud/LinksToSuccessors"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isReadArc" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="poids" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//Noeud">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="notExtremity"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="notExtremity" value="self.LinksToSuccessors->asSequence()->notEmpty() and self.linksToPredecessors->asSequence()->notEmpty()"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReseauPetri">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="noEmptyName"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="noEmptyName" value="name.size() > 0"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="petrielement" upperBound="-1"
+        eType="#//PetriElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PetriElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reseauPetri" eType="#//ReseauPetri"
+        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="ReseauPetri.allInstances()&#xA;&#x9;&#x9;&#x9;&#x9;->select(p | p.petrielement->includes(self))&#xA;&#x9;&#x9;&#x9;&#x9;->asSequence()->first()"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Noeud" abstract="true" eSuperTypes="#//PetriElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="noEmptyName differentNames"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="noEmptyName" value="name.size() > 0"/>
+      <details key="differentNames" value="self.reseauPetri.petrielement&#xA;&#x9;&#x9;&#x9;->select(p | p.oclIsKindOf(Noeud))&#xA;&#x9;&#x9;&#x9;->collect(p | p.oclAsType(Noeud))&#xA;&#x9;&#x9;&#x9;->forAll(w1 | w1 = self or w1.name &lt;> self.name)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linksToPredecessors" upperBound="-1"
+        eType="#//Arc" eOpposite="#//Arc/successor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LinksToSuccessors" upperBound="-1"
+        eType="#//Arc" eOpposite="#//Arc/predecessor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

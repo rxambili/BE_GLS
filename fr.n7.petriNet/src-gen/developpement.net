@@ -1,0 +1,26 @@
+net developpement {
+	pl Conception_Ready (1)
+	pl Conception_EnCours (0)
+	pl Conception_Finish (0)
+	pl Conception_Started (0)
+	pl RedactionDoc_Ready (1)
+	pl RedactionDoc_EnCours (0)
+	pl RedactionDoc_Finish (0)
+	pl RedactionDoc_Started (0)
+	pl Developpement_Ready (1)
+	pl Developpement_EnCours (0)
+	pl Developpement_Finish (0)
+	pl Developpement_Started (0)
+	pl RedactionTests_Ready (1)
+	pl RedactionTests_EnCours (0)
+	pl RedactionTests_Finish (0)
+	pl RedactionTests_Started (0)
+	tr Start_Conception Conception_Ready -> Conception_EnCours Conception_Started 				
+	tr Finish_Conception Conception_EnCours -> Conception_Finish 				
+	tr Start_RedactionDoc RedactionDoc_Ready Conception_Started?1 -> RedactionDoc_EnCours RedactionDoc_Started 				
+	tr Finish_RedactionDoc RedactionDoc_EnCours Conception_Finish?1 -> RedactionDoc_Finish 				
+	tr Start_Developpement Developpement_Ready Conception_Finish?1 -> Developpement_EnCours Developpement_Started 				
+	tr Finish_Developpement Developpement_EnCours -> Developpement_Finish 				
+	tr Start_RedactionTests RedactionTests_Ready Conception_Started?1 -> RedactionTests_EnCours RedactionTests_Started 				
+	tr Finish_RedactionTests RedactionTests_EnCours Developpement_Finish?1 -> RedactionTests_Finish 				
+}

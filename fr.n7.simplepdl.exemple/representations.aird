@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" xmi:id="_eQKhALJREeek4_Fhw3kOfQ" selectedViews="_fwtGsLJREeek4_Fhw3kOfQ" version="12.0.0.201704271200">
+  <semanticResources>My.simplepdl</semanticResources>
+  <semanticResources>P1.pdl</semanticResources>
+  <ownedViews xmi:type="viewpoint:DView" xmi:id="_fwtGsLJREeek4_Fhw3kOfQ">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/fr.n7.simplepdl.design/description/simplepdl.odesign#//@ownedViewpoints[name='simplePdlViewpoint']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

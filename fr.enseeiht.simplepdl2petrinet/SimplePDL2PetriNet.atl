@@ -1,0 +1,79 @@
+module SimplePDL2PetriNet;
+create OUT: petrinet from  IN: simplepdl;
+
+-- Obtenir le processus qui contient ce process element.
+-- Remarque: Ce helper ne serait pas utile si une référence opposite
+-- avait été placée entre Process et ProcessElement
+helper context simplepdl!ProcessElement
+def: getProcess(): simplepdl!Process =
+	simplepdl!Process.allInstances()
+		->select(p | p.processElement->includes(self))
+		->asSequence()->first();
+
+-- Traduire un Process en un PetriNet de même nom
+rule Process2PetriNet {
+	from p: simplepdl!Process
+	to pn: petrinet!ReseauPetri (name <- p.name)
+}
+
+-- Traduire une WorkDefinition en un motif sur le réseau de Petri
+rule WorkDefinition2PetriNet {
+	from wd: simplepdl!WorkDefinition
+	to
+		-- PLACES d'une WorkDefinition
+		p_ready: petrinet!Place(
+				name <- wd.name + '_Ready',
+				jeton <- 1),
+		
+		p_enCours: petrinet!Place(
+				name <- wd.name + '_EnCours',
+				jeton <- 0),
+				
+		p_finish: petrinet!Place(
+				name <- wd.name + '_Finish',
+				jeton <- 0),
+		
+		p_started: petrinet!Place(
+				name <- wd.name + '_Started',
+				jeton <- 0),
+				
+		-- TRANSITIONS d'une WorkDefinition
+		t_start: petrinet!Transition(
+				name <- 'Start_' + wd.name),
+			
+		t_finish: petrinet!Transition(
+				name <- 'Finish_' + wd.name),
+				
+		-- ARCS d'une WorkDefinition
+		a1: petrinet!Arc(
+				predecessor <- p_ready,
+				successor <- t_start,
+				poids <- 1),
+				
+		a2: petrinet!Arc(
+				predecessor <- t_start,
+				successor <- p_enCours,
+				poids <- 1),
+				
+		a3: petrinet!Arc(
+				predecessor <- p_enCours,
+				successor <- t_finish,
+				poids <- 1),
+				
+		a4: petrinet!Arc(
+				predecessor <- t_finish,
+				successor <- p_finish,
+				poids <- 1),
+				
+		a5: petrinet!Arc(
+				predecessor <- t_start,
+				successor <- p_started,
+				poids <- 1)
+}
+
+
+
+		
+		
+		
+		

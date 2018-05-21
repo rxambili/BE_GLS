@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.n7.petriNet/src" modelPluginID="fr.n7.petriNet"
+    modelName="PetriNet" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>PetriNet.ecore</foreignModel>
+  <genPackages prefix="PetriNet" disposableProviderFactory="true" ecorePackage="PetriNet.ecore#/">
+    <genClasses ecoreClass="PetriNet.ecore#//Place">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Place/jeton"/>
+    </genClasses>
+    <genClasses ecoreClass="PetriNet.ecore#//Arc">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PetriNet.ecore#//Arc/successor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PetriNet.ecore#//Arc/predecessor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Arc/isReadArc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Arc/poids"/>
+    </genClasses>
+    <genClasses ecoreClass="PetriNet.ecore#//Transition"/>
+    <genClasses ecoreClass="PetriNet.ecore#//ReseauPetri">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//ReseauPetri/name"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference PetriNet.ecore#//ReseauPetri/petrielement"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PetriNet.ecore#//PetriElement">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference PetriNet.ecore#//PetriElement/reseauPetri"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PetriNet.ecore#//Noeud">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PetriNet.ecore#//Noeud/linksToPredecessors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PetriNet.ecore#//Noeud/LinksToSuccessors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Noeud/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

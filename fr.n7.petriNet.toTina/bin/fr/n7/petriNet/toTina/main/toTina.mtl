@@ -1,0 +1,32 @@
+[comment encoding = UTF-8 /]
+[module toTina('http://petrinet')]
+
+
+[template public toTina(aReseauPetri : ReseauPetri)]
+[comment @main/]
+[file (aReseauPetri.name.concat('.net'), false, 'UTF-8')]
+net [aReseauPetri.name/] {
+[for (p : Place | aReseauPetri.petrielement->getPlaces())]
+	pl [p.name/] ([p.jeton/])
+[/for]
+[for (t : Transition | aReseauPetri.petrielement->getTransitions())]
+	tr [t.name/] [for (a : Arc | t.linksToPredecessors)][a.predecessor.name/][if (a.poids > 1)]*[a.poids/][/if][if (a.isReadArc)]?[a.poids/][/if] [/for]-> [for (a : Arc | t.LinksToSuccessors)][a.successor.name/][if (a.poids > 1)]*[a.poids/][/if] [/for]				
+[/for]
+}
+[/file]
+[/template]
+
+[query public getTransitions(elements : OrderedSet(PetriElement)) : OrderedSet(Transition) =
+		elements->select( e | e.oclIsKindOf(Transition) )
+				->collect( e | e.oclAsType(Transition) )
+				->asOrderedSet()
+/]
+
+
+[query public getPlaces(elements : OrderedSet(PetriElement)) : OrderedSet(Place) =
+		elements->select( e | e.oclIsKindOf(Place) )
+				->collect( e | e.oclAsType(Place) )
+				->asOrderedSet()
+/]
+
+

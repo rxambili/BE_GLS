@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<petrinet:ReseauPetri xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="Mon premier processus">
+  <petrielement xsi:type="petrinet:Place" LinksToSuccessors="//@petrielement.6" name="Ma premi&#xc3;&#xa8;re WorkDefinition, quelle &#xc3;&#xa9;motion_Ready" jeton="1"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.7" LinksToSuccessors="//@petrielement.8" name="Ma premi&#xc3;&#xa8;re WorkDefinition, quelle &#xc3;&#xa9;motion_EnCours"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.9" LinksToSuccessors="//@petrielement.22" name="Ma premi&#xc3;&#xa8;re WorkDefinition, quelle &#xc3;&#xa9;motion_Finish"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.10" name="Ma premi&#xc3;&#xa8;re WorkDefinition, quelle &#xc3;&#xa9;motion_Started"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.6 //@petrielement.23" LinksToSuccessors="//@petrielement.7 //@petrielement.10" name="Start_Ma premi&#xc3;&#xa8;re WorkDefinition, quelle &#xc3;&#xa9;motion"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.8" LinksToSuccessors="//@petrielement.9" name="Finish_Ma premi&#xc3;&#xa8;re WorkDefinition, quelle &#xc3;&#xa9;motion"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.4" predecessor="//@petrielement.0" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.1" predecessor="//@petrielement.4" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.5" predecessor="//@petrielement.1" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.2" predecessor="//@petrielement.5" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.3" predecessor="//@petrielement.4" poids="1"/>
+  <petrielement xsi:type="petrinet:Place" LinksToSuccessors="//@petrielement.17" name="Ma deuxi&#xc3;&#xa8;me WorkDefinition, toujours autant d'&#xc3;&#xa9;motion_Ready" jeton="1"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.18" LinksToSuccessors="//@petrielement.19" name="Ma deuxi&#xc3;&#xa8;me WorkDefinition, toujours autant d'&#xc3;&#xa9;motion_EnCours"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.20" name="Ma deuxi&#xc3;&#xa8;me WorkDefinition, toujours autant d'&#xc3;&#xa9;motion_Finish"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.21" LinksToSuccessors="//@petrielement.23" name="Ma deuxi&#xc3;&#xa8;me WorkDefinition, toujours autant d'&#xc3;&#xa9;motion_Started"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.17 //@petrielement.22" LinksToSuccessors="//@petrielement.18 //@petrielement.21" name="Start_Ma deuxi&#xc3;&#xa8;me WorkDefinition, toujours autant d'&#xc3;&#xa9;motion"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.19" LinksToSuccessors="//@petrielement.20" name="Finish_Ma deuxi&#xc3;&#xa8;me WorkDefinition, toujours autant d'&#xc3;&#xa9;motion"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.15" predecessor="//@petrielement.11" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.12" predecessor="//@petrielement.15" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.16" predecessor="//@petrielement.12" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.13" predecessor="//@petrielement.16" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.14" predecessor="//@petrielement.15" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.15" predecessor="//@petrielement.2" isReadArc="true" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.4" predecessor="//@petrielement.14" isReadArc="true" poids="1"/>
+</petrinet:ReseauPetri>

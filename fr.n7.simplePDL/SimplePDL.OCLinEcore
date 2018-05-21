@@ -1,0 +1,71 @@
+import ecore : 'http://www.eclipse.org/emf/2002/Ecore' ;
+
+package simplepdl : simplepdl = 'http://simplepdl'
+{
+	enum WorkSequenceType { serializable }
+	{
+		literal startToStart;
+		literal finishToStart = 1;
+		literal startToFinish = 2;
+		literal finishToFinish = 3;
+	}
+	class Process
+	{
+		attribute name : String[1];
+		property processElement : ProcessElement[*|1] { ordered composes };
+		invariant noEmptyName: name.size() > 0;
+	}
+	class WorkDefinition extends ProcessElement
+	{
+		property linksToPredecessors#successor : WorkSequence[*|1] { ordered };
+		property linksToSuccessors#predecessor : WorkSequence[*|1] { ordered };
+		attribute name : String[1];
+		property allocation#workdefinition : Allocation[*|1] { ordered composes };
+		invariant differentNames: self.process.processElement
+			->select(p | p.oclIsKindOf(WorkDefinition))
+			->collect(p | p.oclAsType(WorkDefinition))
+			->forAll(w1 | w1 = self or w1.name <> self.name);
+		invariant noEmptyName: name.size() > 0;
+	}
+	class WorkSequence extends ProcessElement
+	{
+		attribute linkType : WorkSequenceType[1];
+		property predecessor#linksToSuccessors : WorkDefinition[1];
+		property successor#linksToPredecessors : WorkDefinition[1];
+		invariant previousWDinSameProcess: self.process = self.predecessor.process;
+		invariant nextWDinSameProcess: self.process = self.successor.process;
+		invariant nonReflexive: self.predecessor <> self.successor;
+	}
+	abstract class ProcessElement
+	{
+		property process : Process[?] { derived readonly transient volatile !resolve }
+		{
+			initial: Process.allInstances()
+				->select(p | p.processElement->includes(self))
+				->asSequence()->first();
+		}
+	}
+	class Guidance extends ProcessElement
+	{
+		attribute text : String[?];
+		property elements : ProcessElement[*|1] { ordered };
+	}
+	class Ressource extends ProcessElement
+	{
+		attribute name : String[?];
+		attribute count : ecore::EInt[1];
+		invariant countPositif: count >= 0;
+		invariant differentNames: self.process.processElement
+			->select(p | p.oclIsKindOf(Ressource))
+			->collect(p | p.oclAsType(Ressource))
+			->forAll(w1 | w1 = self or w1.name <> self.name);
+	}
+	class Allocation
+	{
+		property ressource : Ressource[1];
+		attribute needed : ecore::EInt[1];
+		property workdefinition#allocation : WorkDefinition[1];
+		invariant nonDepassement: needed <= self.ressource.count;
+		invariant neededPositif: needed >= 0;
+	}
+}

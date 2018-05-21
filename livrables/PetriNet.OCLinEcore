@@ -1,0 +1,52 @@
+import ecore : 'http://www.eclipse.org/emf/2002/Ecore' ;
+
+package PetriNet : petrinet = 'http://petrinet'
+{
+	class Place extends Noeud
+	{
+		attribute jeton : ecore::EInt[1];
+	}
+	class Arc extends PetriElement
+	{
+		property successor#linksToPredecessors : Noeud[1];
+		property predecessor#LinksToSuccessors : Noeud[1];
+		attribute isReadArc : Boolean[1];
+		attribute poids : ecore::EInt[1];
+		invariant poidsPos: poids > 0;
+		invariant previousNodeinSamePetri: self.reseauPetri = self.predecessor.reseauPetri;
+		invariant nextNodeinSamePetri: self.reseauPetri = self.successor.reseauPetri;
+		invariant notSameNodeType: (self.successor.oclIsKindOf(Place) and self.predecessor.oclIsKindOf(Transition))
+										or (self.successor.oclIsKindOf(Transition) and self.predecessor.oclIsKindOf(Place));
+	}
+	class Transition extends Noeud
+	{
+		invariant
+		notExtremity: self.LinksToSuccessors->asSequence()->notEmpty() and self.linksToPredecessors->asSequence()->notEmpty();
+	}
+	class ReseauPetri
+	{
+		attribute name : String[?];
+		property petrielement : PetriElement[*|1] { ordered composes };
+		invariant noEmptyName: name.size() > 0;
+	}
+	abstract class PetriElement
+	{
+		property reseauPetri : ReseauPetri[?] { derived readonly transient volatile !resolve }
+		{
+			initial: ReseauPetri.allInstances()
+				->select(p | p.petrielement->includes(self))
+				->asSequence()->first();
+		}
+	}
+	abstract class Noeud extends PetriElement
+	{
+		property linksToPredecessors#successor : Arc[*|1] { ordered };
+		property LinksToSuccessors#predecessor : Arc[*|1] { ordered };
+		attribute name : String[?];
+		invariant noEmptyName: name.size() > 0;
+		invariant differentNames: self.reseauPetri.petrielement
+			->select(p | p.oclIsKindOf(Noeud))
+			->collect(p | p.oclAsType(Noeud))
+			->forAll(w1 | w1 = self or w1.name <> self.name);
+	}
+}

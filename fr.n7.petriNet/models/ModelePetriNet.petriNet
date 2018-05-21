@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<petrinet:ReseauPetri xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="developpement">
+  <petrielement xsi:type="petrinet:Place" LinksToSuccessors="//@petrielement.6" name="Conception_Ready" jeton="1"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.7" LinksToSuccessors="//@petrielement.8" name="Conception_EnCours"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.9" LinksToSuccessors="//@petrielement.45 //@petrielement.46" name="Conception_Finish"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.10" LinksToSuccessors="//@petrielement.44 //@petrielement.47" name="Conception_Started"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.6" LinksToSuccessors="//@petrielement.7 //@petrielement.10" name="Start_Conception"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.8" LinksToSuccessors="//@petrielement.9" name="Finish_Conception"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.4" predecessor="//@petrielement.0" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.1" predecessor="//@petrielement.4" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.5" predecessor="//@petrielement.1" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.2" predecessor="//@petrielement.5" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.3" predecessor="//@petrielement.4" poids="1"/>
+  <petrielement xsi:type="petrinet:Place" LinksToSuccessors="//@petrielement.17" name="RedactionDoc_Ready" jeton="1"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.18" LinksToSuccessors="//@petrielement.19" name="RedactionDoc_EnCours"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.20" name="RedactionDoc_Finish"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.21" name="RedactionDoc_Started"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.17 //@petrielement.44" LinksToSuccessors="//@petrielement.18 //@petrielement.21" name="Start_RedactionDoc"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.19 //@petrielement.45" LinksToSuccessors="//@petrielement.20" name="Finish_RedactionDoc"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.15" predecessor="//@petrielement.11" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.12" predecessor="//@petrielement.15" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.16" predecessor="//@petrielement.12" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.13" predecessor="//@petrielement.16" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.14" predecessor="//@petrielement.15" poids="1"/>
+  <petrielement xsi:type="petrinet:Place" LinksToSuccessors="//@petrielement.28" name="Developpement_Ready" jeton="1"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.29" LinksToSuccessors="//@petrielement.30" name="Developpement_EnCours"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.31" LinksToSuccessors="//@petrielement.48" name="Developpement_Finish"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.32" name="Developpement_Started"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.28 //@petrielement.46" LinksToSuccessors="//@petrielement.29 //@petrielement.32" name="Start_Developpement"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.30" LinksToSuccessors="//@petrielement.31" name="Finish_Developpement"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.26" predecessor="//@petrielement.22" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.23" predecessor="//@petrielement.26" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.27" predecessor="//@petrielement.23" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.24" predecessor="//@petrielement.27" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.25" predecessor="//@petrielement.26" poids="1"/>
+  <petrielement xsi:type="petrinet:Place" LinksToSuccessors="//@petrielement.39" name="RedactionTests_Ready" jeton="1"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.40" LinksToSuccessors="//@petrielement.41" name="RedactionTests_EnCours"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.42" name="RedactionTests_Finish"/>
+  <petrielement xsi:type="petrinet:Place" linksToPredecessors="//@petrielement.43" name="RedactionTests_Started"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.39 //@petrielement.47" LinksToSuccessors="//@petrielement.40 //@petrielement.43" name="Start_RedactionTests"/>
+  <petrielement xsi:type="petrinet:Transition" linksToPredecessors="//@petrielement.41 //@petrielement.48" LinksToSuccessors="//@petrielement.42" name="Finish_RedactionTests"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.37" predecessor="//@petrielement.33" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.34" predecessor="//@petrielement.37" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.38" predecessor="//@petrielement.34" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.35" predecessor="//@petrielement.38" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.36" predecessor="//@petrielement.37" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.15" predecessor="//@petrielement.3" isReadArc="true" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.16" predecessor="//@petrielement.2" isReadArc="true" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.26" predecessor="//@petrielement.2" isReadArc="true" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.37" predecessor="//@petrielement.3" isReadArc="true" poids="1"/>
+  <petrielement xsi:type="petrinet:Arc" successor="//@petrielement.38" predecessor="//@petrielement.24" isReadArc="true" poids="1"/>
+</petrinet:ReseauPetri>
